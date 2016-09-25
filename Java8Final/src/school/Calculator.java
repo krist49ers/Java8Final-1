@@ -1,8 +1,6 @@
 package school;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -28,7 +26,16 @@ public class Calculator {
           
           for (String subjName : keys) {
                 System.out.println("Enter PGA for subject " + subjName);
-                int gpa = new Scanner(System.in).nextInt();
+                int gpa=0;
+                
+                for(;;)
+                {
+                    gpa = new Scanner(System.in).nextInt();
+                    if(gpa<0 || gpa >4)
+                        System.out.println("Invalid gpa for " +subjName+", enter it again:");
+                    else
+                        break;
+                }
                 student.gpa.subjectGpa.put(subjName, gpa);
             }   
           
